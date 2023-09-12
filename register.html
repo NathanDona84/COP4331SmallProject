@@ -9,12 +9,15 @@
 <body>
 
 <div id="loginDiv">
-	<span id="inner-title">Please Register</span>
+	<h3 id= "registerTitle">Please Register</h3>
 	<input class="registerFields" type="text" id="registerFirstName" placeholder="First Name" /><br />
 	<input class="registerFields" type="text" id="registerLastName" placeholder="Last Name" /><br />
 	<input class="registerFields" type="text" id="registerName" placeholder="Username" /><br />
 	<input class="registerFields" type="password" id="registerPassword" placeholder="Password"/><br />
     <button type="button" id="registerButton" class="buttons" onclick="doRegister();"> Register </button>
+	<a href="index.html">
+		<button type="button" id="backButton" class="buttons m-1" onclick=""> Back </button>
+	</a>
 	<div>
 		<span class="m-1" id="registerResult"></span>
 	</div>
