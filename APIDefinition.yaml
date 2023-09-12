@@ -1,0 +1,170 @@
+---
+swagger: "2.0"
+info:
+  description: This is the API documentation for the COP 4331 Contact Manager app (Group 24)
+  version: 1.0.0
+  title: Contact Manager
+  contact:
+    email: ch715804@ucf.edu
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+host: cop4331-group24.online
+basePath: /LAMPAPI
+schemes:
+- http
+consumes:
+- application/json
+produces:
+- application/json
+paths:
+  /Login.php:
+    post:
+      tags:
+      - Users
+      summary: Logs in to contact manager app
+      description: Logs in to contact manager app
+      operationId: doLogin
+      consumes:
+      - application/json
+      parameters:
+      - in: body
+        name: loginItem
+        description: Login
+        required: false
+        schema:
+          $ref: '#/definitions/Login'
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: URL Not Found
+        "500":
+          description: Server Error
+  /Register.php:
+    post:
+      tags:
+      - Users
+      summary: Registers user
+      description: Registers user into contact manager app
+      operationId: doRegister
+      consumes:
+      - application/json
+      parameters:
+      - in: body
+        name: registerItem
+        description: Register
+        required: false
+        schema:
+          $ref: '#/definitions/Register'
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: URL Not Found
+        "500":
+          description: Server Error
+  /AddColor.php:
+    post:
+      tags:
+      - Colors
+      summary: Adds a color
+      description: Adds a color to the to the database
+      operationId: addColor
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: colorItem
+        description: Color
+        required: false
+        schema:
+          $ref: '#/definitions/Color'
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: URL Not Found
+        "500":
+          description: Server Error
+  /SearchColors.php:
+    post:
+      tags:
+      - Search
+      summary: Searches colors
+      description: Searches colors from the database
+      operationId: searchColor
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: searchItem
+        description: Color Search
+        required: false
+        schema:
+          $ref: '#/definitions/Search'
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: URL Not Found
+        "500":
+          description: Server Error
+definitions:
+  Login:
+    type: object
+    required:
+    - login
+    - password
+    properties:
+      login:
+        type: string
+        example: fred
+      password:
+        type: string
+        example: secret
+  Register:
+    type: object
+    required:
+    - password
+    properties:
+      first:
+        type: string
+        example: fred
+      last:
+        type: string
+        example: van fleet
+      login:
+        type: string
+        example: fvf
+      password:
+        type: string
+        example: secret
+  Color:
+    type: object
+    required:
+    - color
+    - userId
+    properties:
+      userId:
+        type: integer
+        example: 1
+      color:
+        type: string
+        example: Blue Green
+  Search:
+    type: object
+    required:
+    - search
+    - userId
+    properties:
+      userId:
+        type: integer
+        example: 1
+      search:
+        type: string
+        example: bl
