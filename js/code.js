@@ -13,13 +13,21 @@ function doLogin()
 	
 	let login = document.getElementById("loginName").value;
 	let password = document.getElementById("loginPassword").value;
-//	var hash = md5( password );
 	
 	document.getElementById("loginResult").innerHTML = "";
 
+	if(login.length < 1){
+		document.getElementById("loginResult").innerHTML = "Username Cannot Be Empty";
+		return;
+	}
+	if(password.length < 1){
+		document.getElementById("loginResult").innerHTML = "Password Cannot Be Empty";
+		return;
+	}
+
 	let tmp = {login:login,password:password};
-//	var tmp = {login:login,password:hash};
 	let jsonPayload = JSON.stringify( tmp );
+	console.log(jsonPayload);
 	
 	let url = urlBase + '/Login.' + extension;
 
@@ -98,6 +106,7 @@ function doRegister(){
 	};
 //	var tmp = {login:login,password:hash};
 	let jsonPayload = JSON.stringify(tmp);
+	console.log(jsonPayload);
 	
 	let url = urlBase + '/Register.' + extension;
 	
@@ -248,57 +257,4 @@ function searchColor()
 		document.getElementById("colorSearchResult").innerHTML = err.message;
 	}
 	
-}
-
-// THIS IS FOR THE MODAL
-var addContactModalButton = document.getElementById("addContactModalOpen");
-// Get the <span> element that closes the modal
-var addContactModalSpan = document.getElementsByClassName("close")[0];
-// When the user clicks the button, open the modal 
-addContactModalButton.onclick = function() {
-  modal.style.display = "block";
-}
-// When the user clicks on <span> (x), close the modal
-addContactModalSpan.onclick = function() {
-  modal.style.display = "none";
-}
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-function addContact()
-{
-	let newFName = document.getElementById("fName").value;
-  let newLName = document.getElementById("lName").value;
-  let newPhoneNumber = document.getElementById("phoneNumber").value;
-	document.getElementById("contactAddResult").innerHTML = "";
-
-	let tmp = {fName:newFName,LName:newLName, phoneNumber:newPhoneNumber};
-  
-	console.log(tmp);
-	
-	let jsonPayload = JSON.stringify( tmp );
-
-	let url = urlBase + '/AddColor.' + extension;
-	
-	let xhr = new XMLHttpRequest();
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	try
-	{
-		xhr.onreadystatechange = function() 
-		{
-			if (this.readyState == 4 && this.status == 200) 
-			{
-				document.getElementById("colorAddResult").innerHTML = "Color has been added";
-			}
-		};
-		xhr.send(jsonPayload);
-	}
-	catch(err)
-	{
-		document.getElementById("colorAddResult").innerHTML = err.message;
-	}
 }

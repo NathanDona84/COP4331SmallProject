@@ -1,39 +1,37 @@
 body {
-    background-image: linear-gradient(to right, #16364a, gray);
+    background-image: linear-gradient(to right, #0a1a24, #15364a);
 }
 
 #title {
     font-size: 40px;
     width: 100%;
     text-align: center;
-    font-family: Arial;
-    color: black;
+    font-family: 'Ubuntu', sans-serif;
+    color: whitesmoke;
+    margin-bottom: 5px;
+    margin-top: 20px;
 }
 
 #registerTitle {
     font-size: 35px;
     width: 100%;
     text-align: center;
-    font-family: Arial;
+    font-family: 'Ubuntu', sans-serif;
     color: black;
 }
 
 #loginDiv {
-    width: 45%;
-    height: 45%;
+    width: 50vw;
+    min-width: 500px;
+    height: 350px;
     color: whitesmoke;
     backdrop-filter: blur(5px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(10%);
     background-color: rgba(236, 235, 245, 0.300);
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.125);
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
-    margin: auto;
+    margin: 0px auto;
+    margin-top: 20vh;
 }
 
 #loggedInDiv {
@@ -45,6 +43,20 @@ body {
     border-radius: 25px 25px 0px 0px;
 }
 
+#registerDiv{
+    width: 50vw;
+    min-width: 500px;
+    height: 500px;
+    color: whitesmoke;
+    backdrop-filter: blur(5px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(10%);
+    background-color: rgba(236, 235, 245, 0.300);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    margin: 0px auto;
+    margin-top: 10vh;
+}
+
 #accessUIDiv {
     font-size: 30px;
     width: 70%;
@@ -54,35 +66,48 @@ body {
     border-radius: 0px 0px 25px 25px;
 }
 
-.buttons {
+.loginButton, .registerButton, .backButton {
     font-size: 25px;
     border-radius: 5px;
-    width: 20%;
-    margin-left: 42%;
-    font-family: Arial;
-    margin-bottom: 2%;
+    width: 10vw;
+    margin: 0px 20vw;
+    margin-top: 5px;
+    font-family: 'Ubuntu', sans-serif;
+    margin-bottom: 0px;
 }
 
-.buttons:hover {
+.loginButton:hover, .registerButton:hover, .backButton:hover {
     background-color: #00d5124f;
     color: #FFFFFF;
     opacity: 50%;
     cursor: pointer;
+}
+
+.linkerDiv{
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
 }
 
 .linkers {
     background-color: transparent;
-        border: transparent;
-        color: blue;
-        margin-left: 65%;
+    border: none;
+    color: whitesmoke;
+    margin: 0px auto;
+    font-size: 16px;
+    font-family: 'Ubuntu', sans-serif;
+    
 }
 
 .linkers:hover {
-    background-color: #00d5124f;
-    color: #FFFFFF;
-    opacity: 50%;
+    color: purple;
     cursor: pointer;
 }
+
+.linkers:active{
+    color: purple;
+}
+
 
 .registerFields {
     border-width: 2px;
@@ -97,17 +122,21 @@ body {
 
 #loginName {
     border-width: 1px;
-    margin-top: 2%;
     font-size: 28px;
-    border-radius: 5px;
     width: 80%;
+    
 }
 
 #loginPassword {
     border-width: 1px;
     font-size: 28px;
-    border-radius: 5px;
     width: 80%;
+}
+
+.username, .password{
+    margin-left: 10%;
+    font-size: 20px;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 #searchText {
@@ -120,33 +149,24 @@ body {
 
 input[type="text"],
 input[type="password"] {
-    border-radius: 25px;
+    border-radius: 10px;
     text-align: center;
     width: 80%;
     margin-left: 10%;
-    margin-bottom: 2%;
+    margin-bottom: 15px;
     font-family: 'Ubuntu', sans-serif;
 }
 
-#inner-title {
-    display: inline-block;
-    font-size: 15px;
-    width: 90%;
-    text-align: center;
-    margin-left: 6%;
-    margin-bottom: 2%;
-    font-family: Arial;
-    color: black;
+.loginResultDiv, .registerResultDiv{
+    margin-left: 10%;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
-#loginResult {
+#loginResult, #registerResult {
     display: inline-block;
-    font-size: 0.8em;
-    width: 90%;
-    text-align: center;
-    margin-left: 5%;
-    margin-bottom: 2%;
-    font-family: Arial;
+    font-size: 20px;
+    font-family: 'Ubuntu', sans-serif;
     color: #95060a;
 }
 
@@ -185,4 +205,12 @@ select {
     margin-bottom: 1%;
     font-family: 'Ubuntu', sans-serif;
     color: #95060a;
+}
+
+.block{
+    display: block;
+}
+
+.inlineBlock{
+    display: inline-block;
 }
