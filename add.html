@@ -1,0 +1,37 @@
+<html>
+<head>
+	<title>Constant Contacts</title>
+	<script type="text/javascript" src="js/md5.js"></script>
+	<script type="text/javascript" src="js/code.js"></script>
+    <link href="css/styles.css" rel="stylesheet">	
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+</head>
+<body>
+	<div id="registerDiv">
+		<h3 id="title">Add Contact</h3>
+		<div class="registerResultDiv">
+			<span id="contactAddResult"></span>
+		</div>
+		<div>
+			<span class="inlineBlock username">First Name:</span>
+			<input class="registerFields" type="text" id="addFirstName" placeholder="First Name" />
+		</div>
+		<div>
+			<span class="inlineBlock username">Last Name:</span>
+			<input class="registerFields" type="text" id="addLastName" placeholder="Last Name" />
+		</div>
+		<div>
+			<span class="inlineBlock username">Phone Number:</span>
+			<input class="registerFields" type="text" id="addPhoneNumber" placeholder="Phone Number" />
+		</div>
+		<div>
+			<span class="inlineBlock username">Email:</span>
+			<input class="registerFields" type="text" id="addEmail" placeholder="Email"/>
+		</div>
+		<button type="button" id="addContactButton" class="registerButton" onclick="addContact();"> Add </button>
+		<a href="color.html">
+			<button type="button" id="backButton" class="backButton m-1" onclick=""> Back </button>
+		</a>
+	</div>
+</body>
+</html>
