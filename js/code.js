@@ -260,7 +260,6 @@ function searchColor()
 }
 
 function addContact(){
-
 	userId = 0;
 	firstName = "";
 	lastName = "";
@@ -295,13 +294,14 @@ function addContact(){
 		first: first,
 		last: last,
 		phone:phone,
-		email: email
+		email: email,
+		userId: userId
 	};
 //	var tmp = {login:login,password:hash};
 	let jsonPayload = JSON.stringify(tmp);
 	console.log(jsonPayload);
 	
-	let url = urlBase + '/Register.' + extension;
+	let url = urlBase + '/AddContact.' + extension;
 	
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
