@@ -217,11 +217,12 @@ function addColor()
 function searchColor()
 {
 	let srch = document.getElementById("searchText").value;
+	let srchType = document.getElementById("data").value;
 	document.getElementById("colorSearchResult").innerHTML = "";
 	
 	let colorList = "";
 
-	let tmp = {search:srch,userId:userId};
+	let tmp = {search:srch,userId:userId, serachType:srchType};
 	let jsonPayload = JSON.stringify( tmp );
 
 	let url = urlBase + '/SearchColors.' + extension;
