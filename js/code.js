@@ -258,3 +258,70 @@ function searchColor()
 	}
 	
 }
+
+function addContact(){
+
+	userId = 0;
+	firstName = "";
+	lastName = "";
+	
+	let first = document.getElementById("addFirstName").value;
+	let last = document.getElementById("addLastName").value;
+	let phone = document.getElementById("addPhoneNumber").value;
+	let email = document.getElementById("addEmail").value;
+
+	//var hash = md5( password );
+	
+	document.getElementById("contactAddResult").innerHTML = "";
+
+	if(first.length < 1){
+		document.getElementById("contactAddResult").innerHTML = "First Name Cannot Be Empty";
+		return;
+	}
+	if(last.length < 1){
+		document.getElementById("contactAddResult").innerHTML = "Last Name Cannot Be Empty";
+		return;
+	}
+	if(phone.length < 1){
+		document.getElementById("contactAddResult").innerHTML = "Username Cannot Be Empty";
+		return;
+	}
+	if(email.length < 1) {
+		document.getElementById("contactAddResult").innerHTML = "Password Cannot Be Empty";
+		return;
+	}
+
+	let tmp = {
+		first: first,
+		last: last,
+		phone:phone,
+		email: email
+	};
+//	var tmp = {login:login,password:hash};
+	let jsonPayload = JSON.stringify(tmp);
+	console.log(jsonPayload);
+	
+	let url = urlBase + '/Register.' + extension;
+	
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try{
+		xhr.onreadystatechange = function(){
+			if (this.readyState == 4 && this.status == 200){
+				let jsonObject = JSON.parse(xhr.responseText);
+				returnResult = jsonObject.data
+				
+				if(returnResult < 1)
+					document.getElementById("contactAddResult").innerHTML = "Duplicate Contact";
+				else
+					document.getElementById("contactAddResult").innerHTML = "Contact Created!";
+				return;
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err){
+		document.getElementById("contactAddResult").innerHTML = err.message;
+	}
+}
