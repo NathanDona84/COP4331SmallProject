@@ -64,24 +64,24 @@ paths:
           description: URL Not Found
         "500":
           description: Server Error
-  /AddColor.php:
+  /AddContact.php:
     post:
       tags:
-      - Colors
-      summary: Adds a color
-      description: Adds a color to the to the database
-      operationId: addColor
+      - Contacts
+      summary: Creates a new contact
+      description: Adds a new contact
+      operationId: addContact
       consumes:
       - application/json
       produces:
       - application/json
       parameters:
       - in: body
-        name: colorItem
-        description: Color
+        name: addContactItem
+        description: Adds a contact
         required: false
         schema:
-          $ref: '#/definitions/Color'
+          $ref: '#/definitions/AddContact'
       responses:
         "200":
           description: OK
@@ -89,24 +89,74 @@ paths:
           description: URL Not Found
         "500":
           description: Server Error
-  /SearchColors.php:
-    post:
+  /SearchContact.php:
+    get:
       tags:
-      - Search
-      summary: Searches colors
-      description: Searches colors from the database
-      operationId: searchColor
+      - Contacts
+      summary: Searches for a contact in your contacts list
+      description: Searches for a contact.
+      operationId: searchContact
       consumes:
       - application/json
       produces:
       - application/json
       parameters:
       - in: body
-        name: searchItem
-        description: Color Search
+        name: searchContactItem
+        description: "Searches for a contact. (For the value of \"data\", use \"1\" to search by first name, \"2\" for last name, \"3\" for phone, \"4\" for email. Depending on the value of \"data\", choose the value of \"value\" appropriately.)"
         required: false
         schema:
-          $ref: '#/definitions/Search'
+          $ref: '#/definitions/SearchContact'
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: URL Not Found
+        "500":
+          description: Server Error
+  /UpdateContact.php:
+    post:
+      tags:
+      - Contacts
+      summary: Updates contact info
+      description: Updates information of an existing contact
+      operationId: updateContact
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: updateContactItem
+        description: Update existing contact info. ("id" should be the id value of the contact)
+        required: false
+        schema:
+          $ref: '#/definitions/UpdateContact'
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: URL Not Found
+        "500":
+          description: Server Error
+  /DeleteContact.php:
+    post:
+      tags:
+      - Contacts
+      summary: Delete a contact
+      description: Deletes a contact
+      operationId: deleteContact
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: deleteContactItem
+        description: Deletes a contact. ("id" should be the id value of the contact)
+        required: false
+        schema:
+          $ref: '#/definitions/DeleteContact'
       responses:
         "200":
           description: OK
@@ -144,27 +194,72 @@ definitions:
       password:
         type: string
         example: secret
-  Color:
+  AddContact:
     type: object
     required:
-    - color
-    - userId
+    - email
+    - userID
     properties:
-      userId:
-        type: integer
-        example: 1
-      color:
+      first:
         type: string
-        example: Blue Green
-  Search:
+        example: Joe
+      last:
+        type: string
+        example: Burrow
+      phone:
+        type: string
+        example: 123 456 7890
+      email:
+        type: string
+        example: jb@gmail.com
+      userID:
+        type: string
+        example: "5"
+  SearchContact:
     type: object
     required:
-    - search
-    - userId
+    - data
+    - userID
+    - value
     properties:
-      userId:
-        type: integer
-        example: 1
-      search:
+      value:
         type: string
-        example: bl
+        example: Joe
+      userID:
+        type: string
+        example: "5"
+      data:
+        type: string
+        example: "1"
+  UpdateContact:
+    type: object
+    required:
+    - email
+    - first
+    - id
+    - last
+    - phone
+    properties:
+      first:
+        type: string
+        example: Joe
+      last:
+        type: string
+        example: Butler
+      phone:
+        type: string
+        example: 123 768 9901
+      email:
+        type: string
+        example: jb@gmail.com
+      id:
+        type: string
+        example: "22"
+  DeleteContact:
+    type: object
+    required:
+    - id
+    properties:
+      id:
+        type: string
+        example: "22"
