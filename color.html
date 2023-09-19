@@ -24,7 +24,6 @@
 			</div>
 
 			<div id="accessUIDiv">
-				<br />
 					<div>
 						<label for="field" id="searchId">Search By: </label>
 						<select name="field" id="data">
@@ -33,18 +32,39 @@
 							<option value="3">Phone</option>
 							<option value="4">Email</option>
 						</select>
-						<input type="text" id="searchText" placeholder="Input Search String"/>
+						<input type="text" id="searchText" placeholder="Input Search String" oninput="searchContact()"/>
 					
-					<button type="button" id="searchContactButton" class="buttons" onclick="searchContact();"> Search Contact </button><br />
+					<button type="button" id="searchContactButton" onclick=" searchContact();"><img src="/../images/icons8-refresh-24.png"/> </button>
 					</div>
-					<span id="colorSearchResult"></span>
-					<p id="colorList">
-					</p><br /><br />
-
-					<!-- <input type="text" id="colorText" placeholder="Color To Add">
-					<button type="button" id="addColorButton" class="buttons" onclick="addColor();"> Add Color </button><br />
-					<span id="colorAddResult"></span> -->
-
+					<div id="contactSearchResultDiv">
+						<span id="contactSearchResult"></span>
+					</div>
+					<div id="contactUpdateResultDiv">
+						<span id="contactUpdateResult"></span>
+					</div>
+					<div id = "table-container">
+						<table id="userTable">
+							<thead>
+							</thead>
+							<tbody>
+								<!-- Table rows will be inserted here dynamically -->
+							</tbody>
+						</table>
+					</div>
+					<div id="editModal" class="modal">
+						<div class="modal-content">
+							<span id="closeModal" style="float: right; cursor: pointer;">&times;</span>
+							<h2>Edit User</h2>
+							<span id="contactUpdateResult"></span>
+							<form id="editForm">
+								<input type="text" id="editFirstName" placeholder="First Name">
+								<input type="text" id="editLastName" placeholder="Last Name">
+								<input type="text" id="editPhoneNumber" placeholder="Phone Number">
+								<input type="text" id="editEmail" placeholder="Email">
+								<button type="button" id="saveEdit" onclick="editContact();">Save</button>
+							</form>
+						</div>
+					</div>
 					
 				<a href="add.html">
 					<div class="linkerDiv">
