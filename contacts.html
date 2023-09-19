@@ -1,0 +1,87 @@
+<html>
+	<head>
+		<title>Royal Rolodex</title>
+		<script type="text/javascript" src="js/md5.js"></script>
+		<script type="text/javascript" src="js/code.js"></script>
+		<link href="css/styles.css" rel="stylesheet">	
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Ubuntu&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="/images/icons8-crown-color-32.png">
+		
+		<script type="text/javascript">
+		document.addEventListener('DOMContentLoaded', function() 
+		{
+			readCookie();
+		}, false);
+		</script>
+		
+	</head>
+	<body>
+
+		<h1 id="title">Welcome your highness</h1>
+
+		<div id="contactDiv">
+			<div id="loggedInDiv">
+				<span id="userName"></span><br />
+				<button type="button" id="logoutButton" class="buttons" onclick="doLogout();"> Log Out </button>
+			</div>
+			<div id="overlayBanner" class="overlay-banner">
+				<p id="bannerText"></p>
+			</div>
+
+			<div id="accessUIDiv">
+					<div>
+						<label for="field" id="searchId">Search By: </label>
+						<input type="text" id="searchText" placeholder="Input Search String" oninput="searchContact()"/>
+					</div>
+
+					<div class="linkerDiv">
+						<a href="add.html" class="linkerDiv">
+							<button type="button" id="addContactButton"><img src="/../images/icons8-add-contact-64.png"/></button>
+						</a>
+						<button type="button" id="searchContactButton" onclick=" searchContact();"><img src="/../images/icons8-refresh-60.png"/></button>	
+					</div>
+
+					<div id="contactSearchResultDiv">
+						<span id="contactSearchResult"></span>
+					</div>
+					<div id="contactUpdateResultDiv">
+						<span id="contactUpdateResult"></span>
+					</div>
+					<div id = "table-container">
+						<table id="userTable">
+							<thead>
+							</thead>
+							<tbody>
+								<!-- Table rows will be inserted here dynamically -->
+							</tbody>
+						</table>
+					</div>
+					<div id="editModal" class="modal">
+						<div class="modal-content">
+							<span id="closeModal" style="float: right; cursor: pointer;">&times;</span>
+							<h2>Edit User</h2>
+							<span id="contactUpdateResult"></span>
+							<form id="editForm">
+								<label for="editFirstName">First Name:</label>
+								<input type="text" id="editFirstName" placeholder="First Name" class="modal-input">
+
+								<label for="editLastName">Last Name:</label>
+								<input type="text" id="editLastName" placeholder="Last Name" class="modal-input">
+
+								<label for="editPhoneNumber">Phone Number:</label>
+								<input type="text" id="editPhoneNumber" placeholder="Phone Number" class="modal-input">
+
+								<label for="editEmail">Email Address</label>
+								<input type="text" id="editEmail" placeholder="Email">
+								<button type="button" id="saveEdit" onclick="editContact();">Save</button>
+							</form>
+						</div>
+					</div>
+			</div>
+
+		</div>
+
+	</body>
+</html>

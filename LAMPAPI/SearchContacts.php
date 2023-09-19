@@ -1,7 +1,6 @@
 <?php
 
 	$inData = getRequestInfo();
-	$data = $inData["data"];
 
 	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
 	if ($conn->connect_error) 
@@ -10,18 +9,11 @@
 	} 
 	else
 	{
-		$attr = "";
-		if($data == 1)
-			$attr = "FirstName";
-		else if($data == 2)
-			$attr = "LastName";
-		else if($data == 3)
-			$attr = "Phone";
-		else if($data == 4)
-			$attr = "Email";
-		$value = "%" . $inData["value"] . "%";
-		$stmt = $conn->prepare("SELECT * FROM Contacts WHERE UserID=? AND " . $attr . " LIKE ?");
-		$stmt->bind_param("ss", $inData["userID"], $value);
+		$attr = ["FirstName", "LastName", "Phone", "Email"];
+		$value = "%" . $inData["search"] . "%";
+		$stmt = $conn->prepare("SELECT * FROM Contacts WHERE UserID=? AND " . $attr[0] . " LIKE ? OR " . $attr[1] . 
+								" LIKE ? OR ". $attr[2] . " LIKE ? OR " . $attr[3] . " LIKE ? ");
+		$stmt->bind_param("sssss", $inData["userID"], $value, $value, $value, $value);
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$searchCount = 0;
@@ -66,7 +58,7 @@
 	
 	function returnWithInfo( $searchResults )
 	{
-		$retValue = '{"results": [' . $searchResults . ']}';
+		$retValue = '{"data": 1, "results": [' . $searchResults . ']}';
 		sendResultInfoAsJson( $retValue );
 	}
 	

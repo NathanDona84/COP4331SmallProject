@@ -1,12 +1,14 @@
 body {
-    background-image: linear-gradient(to right, #0a1a24, #15364a);
+    background-image: url("../images/123.jpg");
+    background-size: cover;
 }
 
 #title {
-    font-size: 40px;
+    font-size: 150px;
     width: 100%;
+    display: inline-block;
     text-align: center;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Great Vibes';
     color: whitesmoke;
     margin-bottom: 5px;
     margin-top: 20px;
@@ -21,56 +23,48 @@ body {
 }
 
 #loginDiv {
-    width: 50vw;
-    min-width: 500px;
-    height: 350px;
+    width: 30vw;
+    min-width: 300px;
+    height: 450px;
     color: whitesmoke;
-    backdrop-filter: blur(5px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(10%);
-    background-color: rgba(236, 235, 245, 0.300);
+    backdrop-filter: blur(10px);
+    /* -webkit-backdrop-filter: blur(16px) saturate(10%); */
+    background-color: rgba(2, 26, 2, .5);
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.125);
+    border: none;
     margin: 0px auto;
-    margin-top: 20vh;
+    margin-top: 5px;
 }
 
-#loggedInDiv {
-    font-size: 30px;
-    width: 70%;
-    margin-left: 15%;
-    padding: 25px;
-    background-color: #697586;
-    border-radius: 25px 25px 0px 0px;
+.loginTitle{
+    font-family: 'Great Vibes';
+    font-size: 75px;
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    margin-top: 30px;
 }
 
 #registerDiv{
     width: 50vw;
     min-width: 500px;
-    height: 500px;
+    height: 60vh;
     color: whitesmoke;
-    backdrop-filter: blur(5px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(10%);
-    background-color: rgba(236, 235, 245, 0.300);
+    backdrop-filter: blur(10px);
+    /* -webkit-backdrop-filter: blur(16px) saturate(10%); */
+    background-color: rgba(2, 26, 2, .5);
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.125);
+    border: none;
     margin: 0px auto;
-    margin-top: 10vh;
-}
-
-#accessUIDiv {
-    font-size: 30px;
-    width: 70%;
-    margin-left: 15%;
-    padding: 25px;
-    background-color: #697586;
-    border-radius: 0px 0px 25px 25px;
+    margin-top: 10px;
 }
 
 .loginButton, .registerButton, .backButton {
     font-size: 25px;
     border-radius: 5px;
     width: 10vw;
-    margin: 0px 20vw;
+    min-width: 75px;
+    margin: 0px 10vw;
     margin-top: 5px;
     font-family: 'Ubuntu', sans-serif;
     margin-bottom: 0px;
@@ -90,22 +84,31 @@ body {
 }
 
 .linkers {
-    background-color: transparent;
+    background-color: rgba(2, 26, 2, .8);
+    height: 75px;
+    width: 200px;
+    border-radius: 5px;
     border: none;
     color: whitesmoke;
     margin: 0px auto;
-    font-size: 16px;
-    font-family: 'Ubuntu', sans-serif;
+    font-size: 50px;
+    font-family: 'Great Vibes';
     
 }
 
 .linkers:hover {
-    color: purple;
+    background-color: #390661;
     cursor: pointer;
 }
 
 .linkers:active{
-    color: purple;
+    background-color: purple;
+}
+
+.linket{
+    color: rgba(245, 245, 245, 1);
+    margin-top: 10px;
+    display: inline-block;
 }
 
 
@@ -120,18 +123,30 @@ body {
     text-align: center;
 }
 
-#loginName {
-    border-width: 1px;
+#loginName, #loginPassword {
+    border: none;
+    border-bottom: whitesmoke solid 2px;
+    border-radius: 0px;
+    color: whitesmoke;
+    background: transparent;
     font-size: 28px;
     width: 80%;
     
 }
 
-#loginPassword {
-    border-width: 1px;
-    font-size: 28px;
-    width: 80%;
+::placeholder {
+    color: whitesmoke;
+    opacity: 1; /* Firefox */
+  }
+  
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: whitesmoke;
 }
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: whitesmoke;
+}
+
 
 .username, .password{
     margin-left: 10%;
@@ -213,4 +228,151 @@ select {
 
 .inlineBlock{
     display: inline-block;
+}
+
+#contactDiv {
+    width: 50vw;
+    min-width: 500px;
+    color: whitesmoke;
+    backdrop-filter: blur(5px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(10%);
+    background-color: rgba(236, 235, 245, 0.300);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    margin: 0px auto;
+    margin-top: 10vh;
+}
+
+#loginName {
+    font-size: 30px;
+}
+
+#loginPassword {
+    font-size: 30px;
+}
+
+#addContactButton {
+    margin: 0px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#addContactButton img {
+    height: 50px;
+    width: 50px;
+}
+
+#searchContactButton {
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#searchContactButton img {
+    height: 40px;
+    width: 40px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: black;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 10px;
+   font-family: 'Ubuntu', sans-serif;
+    width: 80%;
+}
+
+#editForm {
+   width: 30%;
+   border-radius: 5px;
+
+}
+
+#editFirstName {
+    border-radius: 5px;
+}
+
+#editLastName {
+    border-radius: 5px;
+}
+
+#editPhoneNumber {
+    border-radius: 5px;
+}
+
+#editEmail {
+    border-radius: 5px;
+}
+
+
+/* The Close Button */
+.close {
+   color: #aaaaaa;
+   float: right;
+   font-size: 28px;
+   font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+   color: #000;
+   text-decoration: none;
+   cursor: pointer;
+}
+
+.overlay-banner {
+   display: none;
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   background-color: rgba(0, 128, 0, 0.8);
+   color: white;
+   text-align: center;
+   padding: 10px;
+   z-index: 1000;
+   pointer-events: none;
+   border-radius: 50%;
+
+}
+
+/* CSS for the overlay banner with error class (red background) */
+.overlay-banner.error {
+   background-color: red;
+}
+
+/* Styles for the table */
+table {
+   border-collapse: collapse;
+   width: 100%;
+   font-family: 'Ubuntu', sans-serif;
+
+}
+
+th, td {
+
+   border-top: 1px solid #ddd;
+   padding: 8px;
+   text-align: left;
+
+}
+
+th {
+   background-color: #f2f2f2;
+   font-weight: bold;
+   font-size: 25px;
 }

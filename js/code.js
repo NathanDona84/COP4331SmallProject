@@ -56,7 +56,7 @@ function doLogin()
 
 				saveCookie();
 	
-				window.location.href = "color.html";
+				window.location.href = "contacts.html";
 			}
 		};
 		xhr.send(jsonPayload);
@@ -188,16 +188,14 @@ function doLogout()
 function searchContact()
 {
 	let value = document.getElementById("searchText").value;
-	let data = document.getElementById("data").value;
 	document.getElementById("contactSearchResult").innerHTML = "";
 	
 
 	let colorList = "";
 	console.log(userId);
 	let tmp = {
-		value:value,
-		userID:userId,
-		data:data
+		search:value,
+		userID:userId
 	};
 
 	let jsonPayload = JSON.stringify( tmp );
@@ -335,7 +333,7 @@ function editContact(contactInfo){
 		document.getElementById("contactUpdateResult").innerHTML = "Last Name Cannot Be Empty";
 		return;
 	}
-	if(phone.length || phone.match(/\d/g).length != 10){
+	if(phone.length < 1 || phone.match(/\d/g).length != 10){
 		document.getElementById("contactUpdateResult").innerHTML = "Invalid Phone Number";
 		return;
 	}
@@ -367,9 +365,9 @@ function editContact(contactInfo){
 				returnResult = jsonObject.data
 				
 				if(returnResult < 1)
-					document.getElementById("contactUpdateResult").innerHTML = "Update failed";
+					showOverlayBanner("Could not update contact", true);
 				else
-					document.getElementById("contactUpdateResult").innerHTML = "Contact updated!";
+					showOverlayBanner("Contact Updated!", false);
 				return;
 			}
 		};
@@ -484,9 +482,11 @@ function doDelete(contactID) {
 				returnResult = jsonObject.data
 				
 				if(returnResult < 1)
-					document.getElementById("contactSearchResult").innerHTML = "Couldn't find contact to Delete";
-				else
-					document.getElementById("contactSearchResult").innerHTML = "Contact Deleted!";
+					showOverlayBanner("Could not delete contact", true);
+				else{
+					showOverlayBanner("Contact Deleted!", false);
+					searchContact();
+				}
 				return;
 			}
 		};
@@ -496,4 +496,24 @@ function doDelete(contactID) {
 		document.getElementById("contactSearchResult").innerHTML = err.message;
 	}
 
+}
+
+function showOverlayBanner(message, isError = false) {
+    var overlayBanner = document.getElementById("overlayBanner");
+    var bannerText = document.getElementById("bannerText");
+
+    bannerText.textContent = message;
+    overlayBanner.style.display = "block";
+
+    // Add the "error" class if isError is true, else remove it
+    if (isError) {
+        overlayBanner.classList.add("error");
+    } else {
+        overlayBanner.classList.remove("error");
+    }
+
+    // Hide the overlay banner after 3 seconds
+    setTimeout(function () {
+        overlayBanner.style.display = "none";
+    }, 2000); //2 seconds
 }
