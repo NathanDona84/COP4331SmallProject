@@ -12,7 +12,6 @@ body {
 #contactDiv {
     width: 50vw;
     min-width: 500px;
-    height: 500px;
     color: whitesmoke;
     backdrop-filter: blur(5px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(10%);
@@ -56,6 +55,7 @@ body {
 
 #searchText {
     font-size: 30px;
+    width: 30%;
 }
 
 #searchId{
@@ -110,13 +110,27 @@ input[type="password"] {
     font-family: 'Ubuntu', sans-serif;
     font-size: 20px;
     width: 80%;
-    margin-left: 10%;
+    margin-left:0;
     text-align: center;
 }
 
 #logoutButton {
     width: 20%;
     margin-left: 40%;
+}
+
+#editButton {
+    border-radius: 5px;
+    border-width: 0px;
+    cursor: pointer;
+}
+
+
+#deleteButton {
+    border-radius: 5px;
+    border-width: 0px;
+    margin-left: 10px;
+    cursor: pointer;
 }
 
 select {
@@ -127,8 +141,23 @@ select {
     font-family: 'Ubuntu', sans-serif;
 }
 
-#colorSearchResult {
-    display: none;
+#contactSearchResultDiv {
+    margin-left: 10%;
+}
+
+#contactSearchResult {
+    color: whitesmoke;
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+
+}
+#contactUpdateResult {
+    color:black;
+}
+
+#colorList {
+    color: whitesmoke;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 #colorAddResult {
@@ -144,39 +173,28 @@ select {
 }
 
 /* The Modal (background) */
-.modal {
-    display: none;
-    /* Hidden by default */
-    position: fixed;
-    /* Stay in place */
-    z-index: 1;
-    /* Sit on top */
-    padding-top: 100px;
-    /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%;
-    /* Full width */
-    height: 100%;
-    /* Full height */
-    overflow: auto;
-    /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0);
-    /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
-}
+ .modal {
+     display: none;
+     position: fixed;
+     z-index: 1;
+     left: 0;
+     top: 0;
+     width: 100%;
+     height: 100%;
+     overflow: auto;
+     background-color: rgba(0, 0, 0, 0.4);
+     color: black;
+ }
 
-
-/* MODAL STYLINGS */
-/* Modal Content */
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-}
+ .modal-content {
+     background-color: #fefefe;
+     margin: 15% auto;
+     padding: 20px;
+     border: 1px solid #888;
+     border-radius: 10px;
+    font-family: 'Ubuntu', sans-serif;
+     width: 80%;
+ }
 
 /* The Close Button */
 .close {
@@ -191,4 +209,26 @@ select {
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+
+/* Styles for the table */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+    font-family: 'Ubuntu', sans-serif;
+
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    font-size: 25px;
 }
