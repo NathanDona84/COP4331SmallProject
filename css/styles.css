@@ -70,6 +70,17 @@ body {
     margin-bottom: 0px;
 }
 
+.registerButton, .backButton{
+    font-size: 25px;
+    border-radius: 5px;
+    width: 10vw;
+    min-width: 75px;
+    margin: 0px 15vw;
+    margin-top: 5px;
+    font-family: 'Ubuntu', sans-serif;
+    margin-bottom: 0px;
+}
+
 .loginButton:hover, .registerButton:hover, .backButton:hover {
     background-color: #00d5124f;
     color: #FFFFFF;
