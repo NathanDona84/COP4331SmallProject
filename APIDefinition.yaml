@@ -89,8 +89,8 @@ paths:
           description: URL Not Found
         "500":
           description: Server Error
-  /SearchContact.php:
-    get:
+  /SearchContacts.php:
+    post:
       tags:
       - Contacts
       summary: Searches for a contact in your contacts list
@@ -103,7 +103,7 @@ paths:
       parameters:
       - in: body
         name: searchContactItem
-        description: "Searches for a contact. (For the value of \"data\", use \"1\" to search by first name, \"2\" for last name, \"3\" for phone, \"4\" for email. Depending on the value of \"data\", choose the value of \"value\" appropriately.)"
+        description: Searches for a contact.
         required: false
         schema:
           $ref: '#/definitions/SearchContact'
@@ -173,10 +173,10 @@ definitions:
     properties:
       login:
         type: string
-        example: fred
+        example: AndrewB
       password:
         type: string
-        example: secret
+        example: Front_End
   Register:
     type: object
     required:
@@ -184,13 +184,13 @@ definitions:
     properties:
       first:
         type: string
-        example: fred
+        example: King
       last:
         type: string
-        example: van fleet
+        example: Leinecker
       login:
         type: string
-        example: fvf
+        example: KLeinecker
       password:
         type: string
         example: secret
@@ -218,19 +218,15 @@ definitions:
   SearchContact:
     type: object
     required:
-    - data
+    - search
     - userID
-    - value
     properties:
-      value:
+      search:
         type: string
         example: Joe
       userID:
         type: string
         example: "5"
-      data:
-        type: string
-        example: "1"
   UpdateContact:
     type: object
     required:
