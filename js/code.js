@@ -185,6 +185,11 @@ function doLogout()
 	window.location.href = "index.html";
 }
 
+function searchContactAll(){
+	document.getElementById("searchText").value = "";
+	searchContact();
+}
+
 function searchContact()
 {
 	let value = document.getElementById("searchText").value;
@@ -213,7 +218,7 @@ function searchContact()
 			{
 				let jsonObject = JSON.parse( xhr.responseText );
 				if(jsonObject.results) {
-					document.getElementById("contactSearchResult").innerHTML = "Contact(s) has been retrieved";
+					document.getElementById("contactSearchResult").innerHTML = "Contact(s) have been retrieved";
 					document.querySelector("#userTable thead").innerHTML = `
    					 <tr>
 						<th>First Name</th>
@@ -366,8 +371,10 @@ function editContact(contactInfo){
 				
 				if(returnResult < 1)
 					showOverlayBanner("Could not update contact", true);
-				else
+				else{
 					showOverlayBanner("Contact Updated!", false);
+					searchContact();
+				}
 				return;
 			}
 		};
@@ -377,7 +384,7 @@ function editContact(contactInfo){
 		document.getElementById("contactUpdateResult").innerHTML = err.message;
 	}
 	editModal.style.display = "none";
-	searchContact();
+	
 }
 
 function addContact(){

@@ -10,8 +10,9 @@
         <link rel="icon" type="image/x-icon" href="/images/icons8-crown-color-32.png">
 </head>
 <body>
+	<span id="title" style="margin-top: 5px;">Royal Rolodex</span>
 	<div id="registerDiv">
-		<h3 id="title">Add Contact</h3>
+		<span class="registerTitle">Add Contact</span>
 		<div class="registerResultDiv">
 			<span id="contactAddResult"></span>
 		</div>
@@ -19,19 +20,19 @@
 			<span class="inlineBlock username">First Name:</span>
 			<input class="registerFields" type="text" id="addFirstName" placeholder="First Name" />
 		</div>
-		<div>
+		<div style="margin-top: 10px;">
 			<span class="inlineBlock username">Last Name:</span>
 			<input class="registerFields" type="text" id="addLastName" placeholder="Last Name" />
 		</div>
-		<div>
+		<div style="margin-top: 10px;">
 			<span class="inlineBlock username">Phone Number:</span>
 			<input class="registerFields" type="text" id="addPhoneNumber" placeholder="Phone Number" />
 		</div>
-		<div>
+		<div style="margin-top: 10px;">
 			<span class="inlineBlock username">Email:</span>
 			<input class="registerFields" type="text" id="addEmail" placeholder="Email"/>
 		</div>
-		<button type="button" id="addContactButton" class="registerButton" onclick="addContact();"> Add </button>
+		<button type="button" class="registerButton" onclick="addContact();"> Add </button>
 		<a href="contacts.html">
 			<button type="button" id="backButton" class="backButton m-1" onclick=""> Back </button>
 		</a>

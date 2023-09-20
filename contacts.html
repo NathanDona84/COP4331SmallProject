@@ -18,29 +18,28 @@
 		
 	</head>
 	<body>
-
-		<h1 id="title">Welcome your highness</h1>
-
+		<div class="welcomeDiv">
+			<span class="welcome">Welcome Your Highness</span>
+		</div>
 		<div id="contactDiv">
 			<div id="loggedInDiv">
-				<span id="userName"></span><br />
-				<button type="button" id="logoutButton" class="buttons" onclick="doLogout();"> Log Out </button>
+				<span id="userName" class="inlineBlock"></span>
+				<button type="button" id="logoutButton" class="inlineBlock" onclick="doLogout();"> Log Out </button>
 			</div>
 			<div id="overlayBanner" class="overlay-banner">
 				<p id="bannerText"></p>
 			</div>
 
 			<div id="accessUIDiv">
-					<div>
+					<div style="display: inline-block; width: 70%;">
 						<label for="field" id="searchId">Search By: </label>
-						<input type="text" id="searchText" placeholder="Input Search String" oninput="searchContact()"/>
+						<input type="text" id="searchText" placeholder="Search  by  Name / Phone / Email" oninput="searchContact()"/>
 					</div>
-
-					<div class="linkerDiv">
-						<a href="add.html" class="linkerDiv">
-							<button type="button" id="addContactButton"><img src="/../images/icons8-add-contact-64.png"/></button>
+					<div class="searchButtons">
+						<a href="add.html">
+							<button type="button" id="addContactButton"><img src="/../images/crown_plus.png"/></button>
 						</a>
-						<button type="button" id="searchContactButton" onclick=" searchContact();"><img src="/../images/icons8-refresh-60.png"/></button>	
+						<button type="button" id="searchContactButton" onclick=" searchContactAll();"><img src="/../images/icons8-search-50.png"/></button>	
 					</div>
 
 					<div id="contactSearchResultDiv">
@@ -58,30 +57,32 @@
 							</tbody>
 						</table>
 					</div>
-					<div id="editModal" class="modal">
-						<div class="modal-content">
-							<span id="closeModal" style="float: right; cursor: pointer;">&times;</span>
-							<h2>Edit User</h2>
-							<span id="contactUpdateResult"></span>
-							<form id="editForm">
-								<label for="editFirstName">First Name:</label>
-								<input type="text" id="editFirstName" placeholder="First Name" class="modal-input">
-
-								<label for="editLastName">Last Name:</label>
-								<input type="text" id="editLastName" placeholder="Last Name" class="modal-input">
-
-								<label for="editPhoneNumber">Phone Number:</label>
-								<input type="text" id="editPhoneNumber" placeholder="Phone Number" class="modal-input">
-
-								<label for="editEmail">Email Address</label>
-								<input type="text" id="editEmail" placeholder="Email">
-								<button type="button" id="saveEdit" onclick="editContact();">Save</button>
-							</form>
-						</div>
-					</div>
 			</div>
-
 		</div>
-
+		<div id="editModal" class="modal">
+			<div class="modal-content">
+				<span id="closeModal" style="float: right; cursor: pointer;">&times;</span>
+				<span class="editTitle">Edit Contact</span>
+				<form id="editForm">
+					<div class="modal-input-div">
+						<label for="editFirstName">First Name:</label>
+						<input type="text" id="editFirstName" placeholder="First Name" class="modal-input registerFields">
+					</div>
+					<div class="modal-input-div" style="margin-top: 30px;">
+						<label for="editLastName">Last Name:</label>
+						<input type="text" id="editLastName" placeholder="Last Name" class="modal-input registerFields">
+					</div>
+					<div class="modal-input-div" style="margin-top: 30px;">
+						<label for="editPhoneNumber">Phone Number:</label>
+						<input type="text" id="editPhoneNumber" placeholder="Phone Number" class="modal-input registerFields">
+					</div>
+					<div class="modal-input-div" style="margin-top: 30px;">
+						<label for="editEmail">Email Address:</label>
+						<input type="text" id="editEmail" placeholder="Email" class="modal-input registerFields">
+					</div>
+					<button type="button" id="saveEdit" onclick="editContact();">Save</button>
+				</form>
+			</div>
+		</div>
 	</body>
 </html>

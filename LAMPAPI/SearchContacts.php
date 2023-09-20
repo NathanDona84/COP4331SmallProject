@@ -11,8 +11,8 @@
 	{
 		$attr = ["FirstName", "LastName", "Phone", "Email"];
 		$value = "%" . $inData["search"] . "%";
-		$stmt = $conn->prepare("SELECT * FROM Contacts WHERE UserID=? AND " . $attr[0] . " LIKE ? OR " . $attr[1] . 
-								" LIKE ? OR ". $attr[2] . " LIKE ? OR " . $attr[3] . " LIKE ? ");
+		$stmt = $conn->prepare("SELECT * FROM Contacts WHERE UserID=? AND (" . $attr[0] . " LIKE ? OR " . $attr[1] . 
+								" LIKE ? OR ". $attr[2] . " LIKE ? OR " . $attr[3] . " LIKE ? )");
 		$stmt->bind_param("sssss", $inData["userID"], $value, $value, $value, $value);
 		$stmt->execute();
 		$result = $stmt->get_result();
