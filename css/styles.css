@@ -462,19 +462,20 @@ select {
 }
 
 .overlay-banner {
-   display: none;
-   position: fixed;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   background-color: rgba(0, 128, 0, 0.8);
-   color: white;
-   text-align: center;
-   padding: 10px;
-   z-index: 1000;
-   pointer-events: none;
-   border-radius: 50%;
-
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: gold;
+    color: whitesmoke;
+    text-align: center;
+    padding: 10px;
+    z-index: 1000;
+    pointer-events: none;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 /* CSS for the overlay banner with error class (red background) */

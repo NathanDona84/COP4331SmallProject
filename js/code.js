@@ -229,7 +229,8 @@ function searchContact()
 					</tr>`;
 				}
 				else{
-					document.getElementById("contactSearchResult").innerHTML = "No contact found";
+					document.getElementById("contactSearchResult").innerHTML = "No contacts found";
+					document.querySelector("#userTable thead").innerHTML = ``;
 				}
 
 				var tableBody = document.querySelector("#userTable tbody");
